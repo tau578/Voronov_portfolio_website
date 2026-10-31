@@ -1,0 +1,61 @@
+from pathlib import Path
+
+root = Path(__file__).parent
+source = (root / 'build_cv.py').read_text(encoding='utf-8')
+translations = {
+'Sergei_Voronov_CV_2026.pdf':'Sergei_Voronov_CV_2026_RU.pdf',
+'Sergei Voronov - Technical Game Designer':'Сергей Воронов — Технический геймдизайнер',
+'Sergei Voronov':'Сергей Воронов',
+'Technical Game Designer':'Технический геймдизайнер',
+'Gameplay Systems · Unity Implementation · Visual Scripting · Level Design':'Игровые системы · Реализация в Unity · Визуальный скриптинг · Дизайн уровней',
+'Berlin, Germany, open to relocate':'Берлин, Германия, готов к переезду',
+'Portfolio: ':'Портфолио: ',
+'Open to Working Student and Junior Technical Game Design roles':'Рассматриваю позиции Working Student и младшего технического геймдизайнера',
+'PROFILE':'О СЕБЕ',
+'Junior Technical Game Designer with commercial production experience at Paintbucket Games. I design and implement gameplay systems in Unity, translate design ideas into playable content, and work comfortably within existing production frameworks. My main strengths are gameplay systems, visual scripting, level design, and rapid iteration.':'Младший технический геймдизайнер с опытом коммерческой разработки в Paintbucket Games. Проектирую и реализую игровые системы в Unity, воплощаю идеи в игровой контент и уверенно работаю в существующих фреймворках. Мои сильные стороны — игровые системы, визуальный скриптинг, дизайн уровней и быстрые итерации.',
+'EXPERIENCE':'ОПЫТ РАБОТЫ',
+'Paintbucket Games — Technical Design Intern':'Paintbucket Games — Стажёр по техническому дизайну',
+'Berlin · Mar 2026 – Jul 2026':'Берлин · Март 2026 – Июль 2026',
+'Worked on The Darkest Files: The Battalion DLC, gaining first commercial production experience in game development.':'Работал над DLC The Darkest Files: The Battalion, получив первый опыт коммерческой разработки игр.',
+'Implemented gameplay systems and progression logic using Unity and Articy: Draft X within the studio’s custom framework.':'Реализовывал игровые системы и логику прогрессии в Unity и Articy: Draft X на базе собственного фреймворка студии.',
+'Collaborated with programmers, narrative designers, technical artists and producers in weekly sprints and daily stand-ups.':'Работал с программистами, нарративными дизайнерами, теххудожниками и продюсерами: еженедельные спринты, ежедневные стендапы.',
+'Used Plastic SCM, Codecks and internal reviews/playtests to iterate on features and maintain gameplay reliability.':'Использовал Plastic SCM, Codecks, внутренние ревью и плейтесты для доработки функций и стабильной работы игровых систем.',
+'Previous Professional Background — Law &amp; Education':'Предыдущий опыт — Юриспруденция и образование',
+'Strong background in structured analysis, documentation, research and responsibility.':'Развитые навыки системного анализа, работы с документацией и исследования; ответственный подход к работе.',
+'Experience communicating clearly, handling complex information and working independently.':'Опыт ясной коммуникации, работы со сложной информацией и самостоятельного выполнения задач.',
+'Implemented progression logic, narrative scripting and courtroom gameplay in Unity and Articy: Draft X. Configured scenes, waypoints and cameras; tested and debugged gameplay sequences.':'Реализовывал логику прогрессии, нарративные сценарии и судебный игровой процесс в Unity и Articy: Draft X. Настраивал сцены, точки перемещения и камеры; тестировал и отлаживал игровые последовательности.',
+'Driving and delivery game featuring route flow, interaction systems, AI traffic, UI feedback and gameplay tuning.':'Игра о вождении и доставке с системой маршрутов, взаимодействиями, ИИ дорожного движения, обратной связью интерфейса и настройкой игрового процесса.',
+'Remake of a dialogue-focused game expanded with a newly designed rhythm-game system and level design.':'Ремейк игры с акцентом на диалоги, дополненный новой системой ритм-игры и дизайном уровней.',
+'SKILLS':'НАВЫКИ',
+"('Technical',":"('Технические',",
+'Unity Engine (2D / 3D)':'Движок Unity (2D / 3D)',
+'C# gameplay scripting':'Игровой скриптинг на C#',
+'Gameplay systems implementation':'Реализация игровых систем',
+'System integration & debugging':'Интеграция и отладка систем',
+'UI logic':'Логика интерфейса',
+"('Design',":"('Дизайн',",
+'Gameplay mechanics prototyping':'Прототипирование игровых механик',
+'Level design & pacing':'Дизайн уровней и игровой темп',
+'Interaction systems':'Системы взаимодействия',
+'Rapid iteration & playtesting':'Быстрые итерации и плейтесты',
+'Cross-disciplinary collaboration':'Междисциплинарная работа',
+"('Production',":"('Производство',",
+'Agile production':'Разработка по Agile',
+'Weekly sprints':'Еженедельные спринты',
+'Daily stand-ups':'Ежедневные стендапы',
+'Internal reviews & playtests':'Внутренние ревью и плейтесты',
+'EDUCATION':'ОБРАЗОВАНИЕ',
+'B.A. Game Design':'Бакалавриат: геймдизайн (B.A.)',
+'University of Europe for Applied Sciences, Berlin':'University of Europe for Applied Sciences, Берлин',
+'Focus: gameplay prototyping, technical design, level scripting, interaction systems':'Специализация: прототипирование игр, технический дизайн, скриптинг уровней, системы взаимодействия',
+'LANGUAGES':'ЯЗЫКИ',
+'Russian — Native':'Русский — Родной',
+'English — B2 (IELTS 6.5)':'Английский — B2 (IELTS 6.5)',
+'German — A1.2':'Немецкий — A1.2',
+'SELECTED PROJECTS':'ИЗБРАННЫЕ ПРОЕКТЫ',
+}
+for old in sorted(translations, key=len, reverse=True):
+    assert old in source, old
+    source = source.replace(old, translations[old])
+source = source.replace('x+11,y,w-11,base,3', "x+11,y,w-11,ParagraphStyle('ru_bullet',parent=base,leading=12),3")
+(root / 'build_cv_ru.py').write_text(source, encoding='utf-8')

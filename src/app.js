@@ -1,6 +1,7 @@
 const root=document.documentElement;
 function applyLanguage(lang){
  root.lang=lang;
+ document.querySelectorAll('[data-href-en]').forEach(el=>el.href=el.dataset[lang==='ru'?'hrefRu':'hrefEn']);
  try{localStorage.setItem('portfolio-language',lang)}catch{}
  document.querySelectorAll('[data-label-en]').forEach(el=>el.setAttribute('aria-label',el.dataset[lang==='ru'?'labelRu':'labelEn']));
  document.querySelectorAll('[data-alt-en]').forEach(el=>el.alt=el.dataset[lang==='ru'?'altRu':'altEn']);
