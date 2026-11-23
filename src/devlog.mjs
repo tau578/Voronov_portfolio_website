@@ -29,10 +29,21 @@ export const current = {
     credit: ['Music: “Antigone” by Justin Allan Arnold, CC BY 4.0', 'Музыка: «Antigone», Justin Allan Arnold, CC BY 4.0']
   },
   // Screenshots: the first one is shown large, the rest as thumbnails below it.
+  // `src` is one file for both languages, or [en, ru] when the shot has in-game text.
   images: [
-    {src: 'tniw-menu.jpg', width: 1280, height: 720, alt: ['Main menu: an 1888 Illustrated Police News front page with engravings and the New Game and Load Game items', 'Главное меню: газетная полоса The Illustrated Police News 1888 года с гравюрами и пунктами New Game и Load Game']}
+    {src: ['tniw-partner-en.jpg', 'tniw-partner-ru.jpg'], width: 1500, height: 653,
+     caption: ['Day 1: the partner asks where you served before the Yard — your answer picks your background and skills.', 'День 1: напарник спрашивает, где вы служили до Ярда, — ответ задаёт прошлое героя и его навыки.'],
+     alt: ['Dialogue with the partner; on the left, a background card with three skills and their values', 'Диалог с напарником; слева карточка прошлого с тремя навыками и их значениями']},
+    {src: ['tniw-magpie-en.jpg', 'tniw-magpie-ru.jpg'], width: 1500, height: 653,
+     caption: ['Magpie eavesdrops from the dosshouse stairs.', 'Мегпай подслушивает с лестницы ночлежки.'],
+     alt: ['Eavesdropping: a view through the stair railings at two figures below, with the overheard lines in a panel', 'Подслушивание: вид сквозь перила лестницы на двоих внизу, подслушанные реплики на панели']},
+    {src: 'tniw-prologue.jpg', width: 1280, height: 720,
+     caption: ['Prologue: a foggy Whitechapel passage at night.', 'Пролог: ночной проход в Уайтчепеле в тумане.'],
+     alt: ['A figure crawls along a dark, foggy passage towards a distant lamp', 'Фигура ползёт по тёмному туманному проходу к далёкому фонарю']},
+    {src: 'tniw-menu.jpg', width: 1280, height: 720,
+     caption: ['Main menu — The Illustrated Police News, 22 September 1888.', 'Главное меню — выпуск The Illustrated Police News от 22 сентября 1888 года.'],
+     alt: ['Main menu: an 1888 Illustrated Police News front page with engravings and the New Game and Load Game items', 'Главное меню: газетная полоса The Illustrated Police News 1888 года с гравюрами и пунктами New Game и Load Game']}
   ],
-  caption: ['Main menu — The Illustrated Police News, 22 September 1888.', 'Главное меню — выпуск The Illustrated Police News от 22 сентября 1888 года.'],
   // status: done | now | next
   stages: [
     {status: 'done', name: ['S1 · Foundation', 'S1 · Основа'], note: ['2–8 Nov', '2–8 нояб.']},
