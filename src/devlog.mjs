@@ -30,12 +30,12 @@ export const current = {
   stages: [
     {status: 'done', name: ['S1 · Foundation', 'S1 · Основа'], note: ['2–8 Nov', '2–8 нояб.']},
     {status: 'done', name: ['S2 · Prototype 1', 'S2 · Прототип 1'], note: ['night 1 playable', 'ночь 1 играбельна']},
-    {status: 'now', name: ['S3 · Prototype 2', 'S3 · Прототип 2'], note: ['whole game as a skeleton', 'вся игра каркасом']},
-    {status: 'next', name: ['S4 · Feature cut', 'S4 · Срез фич'], note: ['by 28 Nov', 'до 28.11']},
+    {status: 'done', name: ['S3 · Prototype 2', 'S3 · Прототип 2'], note: ['shown 23 Nov', 'показ 23.11']},
+    {status: 'now', name: ['S4 · Feature cut', 'S4 · Срез фич'], note: ['23–29 Nov', '23–29 нояб.']},
     {status: 'next', name: ['Polish', 'Полировка'], note: ['text, sound, light', 'тексты, звук, свет']},
     {status: 'next', name: ['Submission', 'Сдача'], note: ['28 Dec', '28.12']}
   ],
-  currentStage: ['sprint 3 · prototype 2', 'спринт 3 · прототип 2']
+  currentStage: ['sprint 4 · feature cut', 'спринт 4 · срез фич']
 };
 
 // kind: level | design | playtest
