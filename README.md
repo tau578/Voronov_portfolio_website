@@ -15,6 +15,7 @@ Open http://127.0.0.1:4173. Re-run the build after editing source files.
 
 - `src/projects.mjs`: project descriptions, contributions, tags and links.
 - `src/ru.mjs`: Russian project translations and tag labels.
+- `src/devlog.mjs`: "Now in development" block on the home page — current project, milestones and devlog entries (EN/RU). Add an entry to the top of `entries` and rebuild.
 - `src/app.js`: persistent RU/ENG switch and viewport-based video playback.
 - `src/styles.css`: shared design and responsive layouts.
 - `scripts/build.mjs`: page templates and static generation.
