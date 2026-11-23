@@ -22,6 +22,13 @@ export const current = {
     [['Bachelor project', ''], ['Бакалаврский проект', '']]
   ],
   tags: ['Unreal Engine 5', 'C++', 'Systems Design', 'Narrative Design', 'Level Design'],
+  teaser: {
+    src: 'tniw-teaser.mp4', poster: 'tniw-teaser-poster.jpg', width: 1280, height: 720,
+    label: ['Three Nights in Whitechapel teaser', 'Тизер Three Nights in Whitechapel'],
+    caption: ['Teaser', 'Тизер'],
+    credit: ['Music: “Antigone” by Justin Allan Arnold, CC BY 4.0', 'Музыка: «Antigone», Justin Allan Arnold, CC BY 4.0']
+  },
+  // Screenshots: the first one is shown large, the rest as thumbnails below it.
   images: [
     {src: 'tniw-menu.jpg', width: 1280, height: 720, alt: ['Main menu: an 1888 Illustrated Police News front page with engravings and the New Game and Load Game items', 'Главное меню: газетная полоса The Illustrated Police News 1888 года с гравюрами и пунктами New Game и Load Game']}
   ],
