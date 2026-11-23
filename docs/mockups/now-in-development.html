@@ -1,0 +1,169 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Now in Development — mockup A</title>
+<style>
+@font-face{font-family:Inter;src:url('../../assets/inter-400.woff2') format('woff2');font-weight:400}
+@font-face{font-family:Inter;src:url('../../assets/inter-700.woff2') format('woff2');font-weight:700}
+@font-face{font-family:Inter;src:url('../../assets/inter-800.woff2') format('woff2');font-weight:800}
+:root{color-scheme:dark;--bg:#080d12;--panel:#10171e;--line:#27313a;--text:#f1f5f6;--muted:#aebbc6;--accent:#2dcecc;--gas:#e8a948}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--text);font:15px/1.5 Inter,Arial,sans-serif}
+p,h1,h2,h3{margin:0}
+a{color:inherit;text-decoration:none}
+img{display:block;max-width:100%}
+.shell{width:min(1200px,calc(100% - 64px));margin:auto}
+.note{margin:24px 0 16px;padding:10px 14px;border:1px dashed #4b646b;border-radius:10px;color:var(--muted);font-size:13px}
+.note b{color:var(--text)}
+.ghost{border-radius:14px;border:1px solid var(--line);background:var(--panel);display:grid;place-items:center;color:#3c4a55;font-size:13px}
+.section-title{font-size:15px;color:var(--accent);margin-bottom:14px;font-weight:700}
+.panel{background:var(--panel);border:1px solid var(--line);border-radius:14px}
+.tags{display:flex;flex-wrap:wrap;gap:7px;list-style:none;padding:0;margin:14px 0 0}
+.tags li{font-size:12px;padding:2px 8px;border:1px solid var(--line);border-radius:6px;color:var(--muted);background:#0b1218}
+.label{font-size:11px;letter-spacing:.08em;color:var(--accent);font-weight:700}
+.live{display:inline-flex;align-items:center;gap:8px;font-size:11px;font-weight:700;letter-spacing:.1em;color:var(--gas)}
+.live i{width:8px;height:8px;border-radius:50%;background:var(--gas);animation:pulse 2s infinite}
+@keyframes pulse{0%{box-shadow:0 0 0 0 rgba(232,169,72,.6)}70%{box-shadow:0 0 0 8px rgba(232,169,72,0)}100%{box-shadow:0 0 0 0 rgba(232,169,72,0)}}
+@media(prefers-reduced-motion:reduce){.live i{animation:none}}
+
+/* description switcher (mockup only) */
+.picker{display:flex;gap:6px;flex-wrap:wrap;margin:0 0 14px}
+.picker button{font:700 12px Inter,Arial,sans-serif;color:var(--muted);background:#0b1218;border:1px dashed #4b646b;border-radius:999px;padding:5px 12px;cursor:pointer}
+.picker button[aria-pressed=true]{color:#081315;background:var(--gas);border:1px solid var(--gas)}
+.desc{display:none}.desc.on{display:block}
+
+.feat{display:grid;grid-template-columns:1.2fr 1fr;gap:24px;padding:20px}
+.media{border-radius:10px;overflow:hidden;border:1px solid #3a3226;aspect-ratio:16/10;background:#d9c9a8}
+.media img{width:100%;height:100%;object-fit:cover;object-position:top}
+.caption{font-size:12px;color:var(--muted);margin-top:6px}
+.thumbs{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:10px}
+.thumbs img{width:100%;aspect-ratio:16/9;object-fit:cover;border-radius:8px;border:1px solid var(--line)}
+.feat h3{font-size:30px;font-weight:800;letter-spacing:-.03em;line-height:1.1;margin:10px 0 6px}
+.genre{color:var(--gas);font-size:13px;font-weight:700}
+.desc p{color:var(--muted);margin-top:14px}
+.desc p+p{margin-top:8px}
+.desc ul{color:var(--muted);margin:10px 0 0;padding-left:18px}
+.desc li{margin-bottom:4px}
+.desc b{color:var(--text)}
+.meta{display:flex;flex-wrap:wrap;gap:4px 16px;font-size:12px;color:var(--muted);margin-top:14px}
+.meta b{color:var(--text);font-weight:700}
+
+.stage-head{display:flex;justify-content:space-between;align-items:baseline;margin-top:20px;font-size:12px;color:var(--muted)}
+.stage-head b{color:var(--gas)}
+.road{list-style:none;padding:0;margin:10px 0 0;display:grid;grid-template-columns:repeat(6,minmax(0,1fr));position:relative}
+.road::before{content:"";position:absolute;left:8.33%;right:8.33%;top:6px;height:2px;background:var(--line)}
+.road::after{content:"";position:absolute;left:8.33%;width:33.33%;top:6px;height:2px;background:linear-gradient(90deg,var(--accent),var(--gas))}
+.road li{position:relative;z-index:1;text-align:center;font-size:11px;color:var(--muted);line-height:1.25;padding:0 2px}
+.road li::before{content:"";display:block;width:14px;height:14px;margin:0 auto 6px;border-radius:50%;background:var(--bg);border:2px solid var(--line)}
+.road li.done{color:var(--accent)}.road li.done::before{background:var(--accent);border-color:var(--accent)}
+.road li.now{color:var(--gas);font-weight:700}.road li.now::before{background:var(--gas);border-color:var(--gas);box-shadow:0 0 0 4px rgba(232,169,72,.18)}
+.road small{display:block;font-weight:400;color:var(--muted);font-size:10px;margin-top:2px}
+
+.log{border-top:1px solid var(--line);margin-top:20px;padding-top:14px}
+.log-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:6px}
+.log-head span{font-size:12px;color:var(--muted)}
+.entry{display:grid;grid-template-columns:56px 1fr;gap:10px;padding:9px 0;border-bottom:1px solid #1a232b;font-size:13px}
+.entry time{color:var(--muted);font-size:12px;padding-top:1px}
+.k{font-size:10px;font-weight:700;letter-spacing:.06em;padding:1px 6px;border-radius:5px;border:1px solid;margin-right:6px;vertical-align:1px}
+.k.pt{color:#e07a6f;border-color:#5a2a26}.k.lv{color:var(--gas);border-color:#5a4523}.k.ds{color:var(--accent);border-color:#2a5b5b}
+details.more summary{list-style:none;cursor:pointer;color:var(--accent);font-weight:700;font-size:13px;padding-top:10px}
+details.more summary::-webkit-details-marker{display:none}
+details.more[open] summary{display:none}
+
+@media(max-width:900px){.feat{grid-template-columns:1fr}}
+@media(max-width:560px){.shell{width:calc(100% - 32px)}.feat{padding:14px}.feat h3{font-size:24px}.road li{font-size:9px}.road small{font-size:9px}}
+</style>
+</head>
+<body>
+<div class="shell">
+<p class="note"><b>Вариант A, версия 2.</b> Картинки — страница газеты главного меню (<code>Saved/MainMenu/T_MenuPage.png</code>) и блок-аут интерьеров. Этапы — по недельному плану из DESIGN.md. Описание дано в трёх вариантах: переключатель над ним есть только в макете.</p>
+
+<div class="ghost" style="height:110px">… Hero-блок «Сергей Воронов» …</div>
+
+<section style="margin-top:16px">
+ <h2 class="section-title">00 — СЕЙЧАС В РАЗРАБОТКЕ</h2>
+ <article class="panel feat">
+  <div>
+   <div class="media"><img src="img/tniw-menu.jpg" alt="Главное меню игры: газетная полоса The Illustrated Police News с гравюрами и пунктами New Game и Load Game"></div>
+   <p class="caption">Главное меню — выпуск The Illustrated Police News от 22 сентября 1888 года.</p>
+   <div class="thumbs">
+    <img src="img/tniw-menu-bottom.jpg" alt="Нижняя часть газетной страницы меню: Settings, Credits, Reward">
+    <img src="img/tniw-interiors.jpg" alt="Блок-аут интерьеров: паб и задний двор, вид сверху">
+   </div>
+  </div>
+  <div>
+   <span class="live"><i></i>LIVE · ОБНОВЛЕНО 22 НОЯБРЯ</span>
+   <h3>Three Nights in Whitechapel</h3>
+   <p class="genre">Детективная RPG · Уайтчепел, 1888 · Unreal Engine 5</p>
+
+   <div class="picker" role="group" aria-label="Вариант описания" style="margin-top:14px">
+    <button type="button" data-d="1" aria-pressed="true">1 · История</button>
+    <button type="button" data-d="2" aria-pressed="false">2 · Что я делаю</button>
+    <button type="button" data-d="3" aria-pressed="false">3 · Коротко</button>
+   </div>
+
+   <div class="desc on" data-d="1">
+    <p>Лондон, 1888 год. Убийства в Уайтчепеле только начались, а молодой полицейский получает своё первое серьёзное дело. Три ночи, три места преступления — и всё меньше времени до следующего.</p>
+    <p>Улики можно понять неправильно, свидетели говорят не всё, а на допросе решает бросок кубиков. Игроку нужно самому восстановить, что произошло, и решить, кого арестовать.</p>
+   </div>
+
+   <div class="desc" data-d="2">
+    <p>Детективная RPG, которую я делаю один, от дизайна до кода на C++. Мой фокус — системы, которые превращают расследование в решения игрока:</p>
+    <ul>
+     <li><b>Система фактов:</b> игра помнит каждую находку и каждый ответ в диалоге и меняет мир от ночи к ночи.</li>
+     <li><b>Проверки 2d6:</b> перед броском видно, какие улики и выборы дают бонус.</li>
+     <li><b>Реконструкция:</b> вечером герой сам рассказывает версию событий, и сцена проигрывается по его словам.</li>
+    </ul>
+   </div>
+
+   <div class="desc" data-d="3">
+    <p><b>Расследование убийств Уайтчепела 1888 года — в духе Disco Elysium.</b></p>
+    <ul>
+     <li>Два героя: полицейский-новичок и Мегпай из ночлежки. У каждого своя часть правды.</li>
+     <li>Осмотр места, диалоги и проверки 2d6 с видимыми бонусами.</li>
+     <li>Своя версия событий, за которую придётся отвечать арестом.</li>
+    </ul>
+   </div>
+
+   <div class="meta"><span>Роль: <b>соло-разработка</b></span><span>Движок: <b>Unreal Engine 5, C++</b></span><span>Бакалаврский проект</span></div>
+   <ul class="tags"><li>Unreal Engine 5</li><li>C++</li><li>Системный дизайн</li><li>Нарративный дизайн</li><li>Level Design</li></ul>
+
+   <div class="stage-head"><span class="label">ЭТАПЫ</span><span>Сейчас: <b>спринт 3 · прототип 2</b></span></div>
+   <ol class="road">
+    <li class="done">S1 · Основа<small>2–8 нояб.</small></li>
+    <li class="done">S2 · Прототип 1<small>ночь 1 играбельна</small></li>
+    <li class="now">S3 · Прототип 2<small>вся игра каркасом · показ 23.11</small></li>
+    <li>S4 · Срез фич<small>до 28.11</small></li>
+    <li>Полировка<small>тексты, звук, свет</small></li>
+    <li>Сдача<small>28.12</small></li>
+   </ol>
+
+   <div class="log">
+    <div class="log-head"><span class="label">ДЕВЛОГ</span><span>последние записи</span></div>
+    <div class="entry"><time>22 ноя</time><div><span class="k lv">LEVEL</span>Блок-аут уступил место интерьерам: ночлежка, игорный дом «Нора», задний двор паба.</div></div>
+    <div class="entry"><time>21 ноя</time><div><span class="k ds">DESIGN</span>Новая карта района по картам бедности Чарльза Бута: классы улиц и пометки от руки.</div></div>
+    <div class="entry"><time>20 ноя</time><div><span class="k pt">PLAYTEST</span>Обыск у мясника стал самым сильным моментом дня. Вечерняя реконструкция теперь идёт по кускам — по мере рассказа героя.</div></div>
+    <details class="more">
+     <summary>Ещё записи ↓</summary>
+     <div class="entry"><time>20 ноя</time><div><span class="k ds">DESIGN</span>Журнал Мегпай: воспоминание, которое помогло в броске, отмечается на доске.</div></div>
+     <div class="entry"><time>19 ноя</time><div><span class="k pt">PLAYTEST</span>Первый плейтест дня 1: убраны лишние подсказки в интерфейсе.</div></div>
+     <div class="entry"><time>16 ноя</time><div><span class="k ds">DESIGN</span>Рамки и орнаменты интерфейса — из журналов 1880-х (CC0).</div></div>
+    </details>
+   </div>
+  </div>
+ </article>
+</section>
+
+<div class="ghost" style="height:90px;margin-top:16px">… 01 — Коммерческий опыт …</div>
+<div style="height:40px"></div>
+</div>
+<script>
+document.querySelectorAll('.picker button').forEach(b=>b.addEventListener('click',()=>{
+ document.querySelectorAll('.picker button').forEach(x=>x.setAttribute('aria-pressed',x===b));
+ document.querySelectorAll('.desc').forEach(d=>d.classList.toggle('on',d.dataset.d===b.dataset.d));
+}));
+</script>
+</body>
+</html>
