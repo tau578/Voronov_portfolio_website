@@ -18,7 +18,7 @@ function cards(group,base){return projects.filter(p=>p.group===group).map(p=>{
 const monthsEn=['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'],monthsRu=['янв','фев','мар','апр','мая','июн','июл','авг','сен','окт','ноя','дек'];
 const monthsRuLong=['января','февраля','марта','апреля','мая','июня','июля','августа','сентября','октября','ноября','декабря'];
 const dayMonth=(iso,ru)=>{const[,m,d]=iso.split('-').map(Number);return `${d} ${(ru?monthsRu:monthsEn)[m-1]}`};
-const kinds={level:['LEVEL','LEVEL'],design:['DESIGN','DESIGN'],playtest:['PLAYTEST','PLAYTEST']};
+const kinds={level:['LEVEL'],design:['DESIGN'],playtest:['PLAYTEST'],milestone:['MILESTONE']};
 const devEntry=e=>`<li class="dev-entry"><time datetime="${e.date}">${t(dayMonth(e.date),dayMonth(e.date,true))}</time><p><span class="dev-kind dev-kind-${e.kind}">${kinds[e.kind][0]}</span>${t(...e.text)}</p></li>`;
 function nowSection(base){const c=current;const latest=entries[0].date;const[,lm,ld]=latest.split('-').map(Number);
  const[main,...thumbs]=c.images;

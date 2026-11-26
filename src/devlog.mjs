@@ -56,8 +56,14 @@ export const current = {
   currentStage: ['sprint 4 · feature cut', 'спринт 4 · срез фич']
 };
 
-// kind: level | design | playtest
+// kind: level | design | playtest | milestone
 export const entries = [
+  {date: '2026-11-26', kind: 'level', text: ['Paved and lit the district: single setts, a ringed plaza, puddles, gas lamps and weather. The stockyard gate now swings open.', 'Район замощён и освещён: брусчатка, круглая площадь, лужи, газовые фонари и погода. Ворота скотного двора теперь открываются.']},
+  {date: '2026-11-25', kind: 'design', text: ['Newspaper-style menus: settings and sound open as newspaper windows, and the pause menu is a pile of clippings.', 'Меню в газетном стиле: настройки и звук открываются газетными окнами, а пауза — стопка вырезок.']},
+  {date: '2026-11-25', kind: 'design', text: ['The first reconstruction now teaches itself: walk the yard, and the partner writes down the first link.', 'Первая реконструкция теперь обучает сама: пройдитесь по двору — и напарник запишет первое звено.']},
+  {date: '2026-11-25', kind: 'level', text: ['Detailed blockouts of the pawnshop, the laundry and the carpenter’s workshop.', 'Детальные блок-ауты ломбарда, прачечной и мастерской столяра.']},
+  {date: '2026-11-23', kind: 'playtest', text: ['Playtest 23.11: reworked Magpie’s day route and the voices behind the wall; rooms now stay dark from outside.', 'Плейтест 23.11: переделаны маршрут дня Мегпай и голоса за стеной, комнаты снаружи теперь тёмные.']},
+  {date: '2026-11-23', kind: 'milestone', text: ['Prototype 2: the whole game runs as a skeleton from New Game to the ending; an automated test walks the routes through it.', 'Прототип 2: вся игра проходится каркасом от «Новой игры» до финала, автотест проверяет маршруты прохождения.']},
   {date: '2026-11-22', kind: 'level', text: ['Blockout gave way to interiors: the dosshouse, the gambling den “The Burrow”, the pub’s back yard.', 'Блок-аут уступил место интерьерам: ночлежка, игорный дом «Нора», задний двор паба.']},
   {date: '2026-11-21', kind: 'design', text: ['New district map based on Charles Booth’s poverty maps: street classes and handwritten notes.', 'Новая карта района по картам бедности Чарльза Бута: классы улиц и пометки от руки.']},
   {date: '2026-11-20', kind: 'playtest', text: ['Searching the butcher’s became the strongest moment of the day. The evening reconstruction now plays piece by piece as the hero tells it.', 'Обыск у мясника стал самым сильным моментом дня. Вечерняя реконструкция теперь идёт по кускам — по мере рассказа героя.']},
